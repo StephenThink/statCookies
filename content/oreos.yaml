@@ -1,0 +1,11 @@
+essentials_title: Essentials
+essentials_description: 'These are for the website to work'
+analytics_title: Analytics
+analytics_description: 'These are for tracking usage of the site'
+analytics_details:
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: 'Google Analytics'

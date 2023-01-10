@@ -6,11 +6,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ title ?? site:name }}</title>
         <link rel="stylesheet" href="{{ mix src='css/tailwind.css' }}">
+    {{ if {oreo:analytics} }}
+            <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2SCDX96EC"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-N2SCDX96EC', {
+                cookie_flags: 'max-age=31536000;secure;samesite=strict'
+            });
+        </script>
+        {{ else }}
+
+
+        {{ /if }}
     </head>
     <body class="bg-gray-100 font-sans leading-normal text-gray-800">
         <div class="mx-auto px-2 lg:min-h-screen flex flex-col items-center justify-center">
             {{ template_content }}
         </div>
         <script src="{{ mix src='/js/site.js' }}"></script>
+    {{  nocache }}
+    {{ oreos:popup }}
+        {{  /nocache }}
+
     </body>
 </html>
